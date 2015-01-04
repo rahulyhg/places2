@@ -20,13 +20,33 @@ phonecatControllers.controller('home', ['$scope', 'TemplateService', 'Navigation
                 data = data.slice(0, 5);
             }
             $scope.places = data;
-            console.log(data);
+            //console.log(data);
         };
         $scope.getnewplaces = function (form) {
             NavigationService.getdetails(form.latlong, form.type).success(placescomplete);
         };
+        var propertiessuccess = function (data) {
 
+            data = data.queryresult;
+            console.log(data);
+            $scope.map = {
+                center: {
+                    latitude: data[0].lat,
+                    longitude: data[0].long
+                },
+                zoom: 17
+            };
 
+            $scope.markers = NavigationService.formatmarkers(data);
+
+        };
+        NavigationService.getproperties().success(propertiessuccess);
+
+        $scope.console = function (data) {
+
+            $scope.form.latlong = data.latitude + "," + data.longitude;
+            NavigationService.getdetails($scope.form.latlong, $scope.form.type).success(placescomplete);
+        };
 
   }]);
 phonecatControllers.controller('headerctrl', ['$scope', 'TemplateService',

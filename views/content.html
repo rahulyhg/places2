@@ -1,13 +1,41 @@
 <div class="container">
-    <h3>{{form.type}}</h3>
-    <h4>{{forn.latlong}}</h4>
-    <div ng-repeat="place in places">
-        <li>
-            <p>
-                <b>{{place.name}}</b>
-                - {{place.geometry.location.lat+","+place.geometry.location.lng}}
-            </p>
-        </li>
+    <div class="row">
+        <div class="col-md-6">
+            <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" click="console(marker.coords)" idkey="marker.id">
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-7">
+                    <input type="search" readonly="readonly" placeholder="Search..." ng-model="form.latlong" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <select name="" ng-model="form.type" id="" class="form-control">
+                        <option value="{{alltype}}" ng-repeat="alltype in alltypes">{{alltype}}</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button ng-click="getnewplaces(form);" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
 
+            <h3>{{form.type}}</h3>
+            <h4>{{form.latlong}}</h4>
+
+            <div ng-repeat="place in places">
+                <li>
+                    <p>
+                        <b>{{place.name}}</b>
+                        - {{place.geometry.location.lat+","+place.geometry.location.lng|distance2:form.latlong}}
+                    </p>
+                </li>
+
+            </div>
+        </div>
     </div>
+
+
+
 </div>

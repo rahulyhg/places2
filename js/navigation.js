@@ -28,7 +28,7 @@ var navigationservice = angular.module('navigationservice', [])
             latlong=latlong.split(",");
             var lat=latlong[0];
             var long=latlong[1];
-            return $http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+long+"&radius=500&types="+type+"&key=AIzaSyCFszS_TmKjf2UaP4n2vRn8PP9Tnhk0XPI");
+            return $http.get("http://wohlig.co.in/places/index.php?lat="+lat+"&long="+long+"&type="+type);
         }
         
     }

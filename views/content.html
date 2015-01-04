@@ -1,3 +1,13 @@
 <div class="container">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat cum hic rem et laborum quibusdam, esse dolorum, suscipit ex, ab optio? Quaerat quae nihil, vel molestias suscipit pariatur inventore velit.
+    <h3>{{form.type}}</h3>
+    <h4>{{forn.latlong}}</h4>
+    <div ng-repeat="place in places">
+        <li>
+            <p>
+                <b>{{place.name}}</b>
+                - {{place.geometry.location.lat+","+place.geometry.location.lng}}
+            </p>
+        </li>
+
+    </div>
 </div>

@@ -1,19 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-4">
             <input type="search" placeholder="Search..." ng-model="form.latlong" class="form-control">
         </div>
         <div class="col-md-3">
-            <select name="" ng-model="form.type" id=""><option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option></select>
+            <select name="" ng-model="form.type" id="" class="form-control">
+                <option value="{{alltype}}" ng-repeat="alltype in alltypes">{{alltype}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button ng-click="getnewplaces(form);" class="btn btn-primary">Submit</button>
         </div>
     </div>
 </div>

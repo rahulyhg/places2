@@ -11,7 +11,7 @@ phonecatControllers.controller('home', ['$scope', 'TemplateService', 'Navigation
             type: "airport"
         };
         $scope.alltypes = [
-            "airport", "train_station", "bus_station", "bank,atm", "hospital", "school", "park", "restaurant", "movie_theater", "night_club,bar", "department_store,grocery_or_supermarket", "pharmacy", "shopping_mall"
+            "airport", "train_station", "bus_station", "bank|atm", "hospital", "school", "park", "restaurant", "movie_theater", "night_club|bar", "department_store|grocery_or_supermarket", "pharmacy", "shopping_mall"
         ];
         $scope.places = [];
         var placescomplete = function (data) {

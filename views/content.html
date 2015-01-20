@@ -2,7 +2,12 @@
     <div class="row">
         <div class="col-md-6">
             <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-                <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" click="console(marker.coords)" idkey="marker.id">
+                <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" click="console(marker.coords)" idkey="marker.id" icon="marker.icon">
+                        <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+                visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" events="c.events">
+
+
+</ui-gmap-polygon>
                 </ui-gmap-marker>
             </ui-gmap-google-map>
         </div>

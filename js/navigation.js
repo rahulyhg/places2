@@ -29,7 +29,7 @@ var navigationservice = angular.module('navigationservice', [])
             return $http.get("http://wohlig.co.in/places/index.php?lat=" + lat + "&long=" + long + "&type=" + type);
         },
         getproperties: function () {
-            return $http.get("http://bdp.epuratech.com/admin/index.php/json/viewpropertyjson");
+            return $http.get("http://bdp.epuratech.com/admin/index.php/json/getallproperties");
         },
         formatmarkers: function (data) {
             var allmarkers = [];
